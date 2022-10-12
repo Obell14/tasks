@@ -16,6 +16,11 @@ function App(): JSX.Element {
                 src="C:\Users\owenb\Desktop\Rodman"
                 alt="a picture of Dennis Rodman"
             />
+            <ol>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ol>
             <p>Owen Bellew</p>
         </div>
     );
