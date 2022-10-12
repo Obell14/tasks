@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { Button } from "react-bootstrap";
 
 function App(): JSX.Element {
     return (
@@ -10,8 +11,9 @@ function App(): JSX.Element {
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload. Hello World. COS420
+                automatically reload. Hello World. COS420.
             </p>
+            <Button aria-label="Log Hello World">Click Me</Button>
             <img
                 src="C:\Users\owenb\Desktop\Rodman"
                 alt="a picture of Dennis Rodman"
