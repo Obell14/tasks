@@ -12,6 +12,10 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload. Hello World. COS420
             </p>
+            <img
+                src="C:\Users\owenb\Desktop\Rodman"
+                alt="a picture of Dennis Rodman"
+            />
             <p>Owen Bellew</p>
         </div>
     );
