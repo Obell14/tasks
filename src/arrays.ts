@@ -50,10 +50,16 @@ export const removeDollars = (amounts: string[]): number[] => {
             const temp = x.substring(1);
             return parseFloat(temp);
         }
-        //console.log("hello");
         return parseFloat(x);
     });
-    return dollar;
+    const checking = dollar.map((x: number): number => {
+        if (isNaN(x)) {
+            return 0;
+        } else {
+            return x;
+        }
+    });
+    return checking;
 };
 
 /**
@@ -107,7 +113,13 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    if (addends.length == 0) {
+        return "0=0";
+    }
+    const sum = addends.reduce((x: number, num: number) => x + num, 0);
+    const togth = addends.join("+");
+    const final = sum.toString().concat("=", togth);
+    return final;
 }
 
 /**
