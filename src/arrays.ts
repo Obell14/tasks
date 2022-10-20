@@ -80,7 +80,8 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    const newWord = words.filter((x: string): boolean => x.length < 4);
+    return newWord.length;
 }
 
 /**
@@ -89,6 +90,12 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
+    const rgb = colors.filter(
+        (x: string): boolean => x == "red" || x == "blue" || x == "green"
+    );
+    if (rgb.length == colors.length) {
+        return true;
+    }
     return false;
 }
 
