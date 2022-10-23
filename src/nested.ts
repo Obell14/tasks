@@ -108,7 +108,7 @@ id,name,options,points,published
  */
 export function toCSV(questions: Question[]): string {
     const temp = questions.map((x: Question): string => {
-        let str1 =
+        const str1 =
             "" +
             x.id +
             "," +
@@ -132,7 +132,16 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    return [];
+    const newArr: Answer[] = questions.map((x: Question): Answer => {
+        const new1 = {
+            questionId: x.id,
+            text: "",
+            submitted: false,
+            correct: false
+        };
+        return new1;
+    });
+    return newArr;
 }
 
 /***
