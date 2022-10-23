@@ -1,3 +1,4 @@
+import { isQuestion } from "./functions";
 import { Question, QuestionType } from "./interfaces/question";
 
 /**
@@ -121,14 +122,9 @@ export function publishQuestion(question: Question): Question {
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
     const nextq: Question = {
-        body: oldQuestion.body,
-        type: oldQuestion.type,
-        options: oldQuestion.options,
-        expected: oldQuestion.expected,
-        points: oldQuestion.points,
+        ...oldQuestion,
         id: id,
-        QuestionType: undefined,
-        name: "",
+        options: [...oldQuestion.options],
         published: false
     };
     nextq.name = "Copy of " + oldQuestion.name;
@@ -143,7 +139,11 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    return question;
+    const newVersion: Question = {
+        ...question,
+        options: [...question.options, newOption]
+    };
+    return newVersion;
 }
 
 /**
@@ -160,5 +160,18 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-    return contentQuestion;
+    const finalq: Question = {
+        ...contentQuestion,
+        id: id,
+        name: name,
+        body: contentQuestion.body,
+        type: contentQuestion.type,
+        options: [...contentQuestion.options],
+        expected: contentQuestion.expected,
+        published: false,
+        //QuestionType: ,
+        points: points
+    };
+
+    return finalq;
 }
