@@ -1,4 +1,14 @@
 export function dogpass(password: string): boolean {
+    if (password.length != 16) {
+        return false;
+    } else if (!/\d/.test(password)) {
+        //if there is not a digit at all
+        return false;
+    } else if (!/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(password)) {
+        return false;
+    } else if (/^[A-Z]/i.test(password)) {
+        return true;
+    }
     return false;
 }
 
