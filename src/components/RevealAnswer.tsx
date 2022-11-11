@@ -14,7 +14,9 @@ export function RevealAnswer(): JSX.Element {
     );
 }
 
-/*The RevealAnswer component simulates a quiz application that provides a way to “reveal the answer” to a user by clicking a button. The answer will be 42 for our purposes.
+/*The RevealAnswer component simulates a quiz application that 
+provides a way to “reveal the answer” to a user by clicking a button. 
+The answer will be 42 for our purposes.
 
 You will need a state to handle whether the text is visible.
 There is a button labelled Reveal Answer that inverts the state.
